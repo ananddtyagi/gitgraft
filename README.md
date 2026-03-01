@@ -43,7 +43,7 @@ For a step-by-step guide, see [QUICKSTART.md](QUICKSTART.md).
 After installation, run the onboarding flow:
 
 ```bash
-graph onboard
+git-graft onboard
 ```
 
 This will guide you through the initial setup and optionally create a shell alias (`gg`).
@@ -55,7 +55,7 @@ This will guide you through the initial setup and optionally create a shell alia
 Launch the main menu to see all available commands:
 
 ```bash
-graph
+git-graft
 # or if you created the alias:
 gg
 ```
@@ -71,7 +71,7 @@ Features:
 View and navigate your Git branches with commit history:
 
 ```bash
-graph branch
+git-graft branch
 # or with alias:
 gg branch
 ```
@@ -105,7 +105,7 @@ GitGraft stores its configuration in `~/.config/gitgraft/config.json`.
 The onboarding flow can automatically add an alias to your shell configuration:
 
 ```bash
-alias gg='graph'
+alias gg='git-graft'
 ```
 
 This is added to `~/.bashrc` or `~/.zshrc` depending on your shell.
@@ -143,7 +143,7 @@ python3 -c "from gitgraft.git_utils import GitRepo; print('OK')"
 
 # Test in a git repository
 cd /path/to/git/repo
-graph branch
+git-graft branch
 ```
 
 ## Roadmap

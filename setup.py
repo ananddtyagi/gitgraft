@@ -24,7 +24,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "graph=gitgraft.cli:main",
+            "git-graft=gitgraft.cli:main",
         ],
     },
 )

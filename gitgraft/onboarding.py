@@ -108,7 +108,7 @@ class OnboardingApp(App):
         container.query_one("#title").update("⚡ Shell Alias")
         container.query_one("#content").update(
             "Would you like to create a shell alias?\n\n"
-            "This will allow you to use 'gg' instead of 'graph'\n\n"
+            "This will allow you to use 'gg' instead of 'git-graft'\n\n"
             "Example: 'gg' will show the main menu\n"
             "         'gg branch' will show the branch selector"
         )
@@ -135,13 +135,13 @@ class OnboardingApp(App):
             config_file = bashrc if os.path.exists(bashrc) else bash_profile
         
         if config_file:
-            alias_line = "\n# GitGraft alias\nalias gg='graph'\n"
+            alias_line = "\n# GitGraft alias\nalias gg='git-graft'\n"
             
             # Check if alias already exists
             try:
                 with open(config_file, 'r') as f:
                     content = f.read()
-                    if "alias gg='graph'" not in content and 'alias gg="graph"' not in content:
+                    if "alias gg='git-graft'" not in content and 'alias gg="git-graft"' not in content:
                         with open(config_file, 'a') as f:
                             f.write(alias_line)
             except FileNotFoundError:
@@ -162,15 +162,15 @@ class OnboardingApp(App):
                 "Alias 'gg' has been added to your shell config.\n"
                 "Restart your terminal or run 'source ~/.bashrc' (or ~/.zshrc)\n\n"
                 "Try these commands:\n"
-                "  • graph (or gg) - Main menu\n"
-                "  • graph branch (or gg branch) - Branch selector"
+                "  • git-graft (or gg) - Main menu\n"
+                "  • git-graft branch (or gg branch) - Branch selector"
             )
         else:
             content = (
                 "GitGraft is now configured!\n\n"
                 "Try these commands:\n"
-                "  • graph - Main menu\n"
-                "  • graph branch - Branch selector"
+                "  • git-graft - Main menu\n"
+                "  • git-graft branch - Branch selector"
             )
         
         container.query_one("#content").update(content)

@@ -33,9 +33,9 @@ Before submitting a PR:
 
 1. **Test your changes manually**
    ```bash
-   graph branch     # Test branch selector
-   graph onboard    # Test onboarding
-   graph            # Test main menu
+   git-graft branch     # Test branch selector
+   git-graft onboard    # Test onboarding
+   git-graft            # Test main menu
    ```
 
 2. **Verify module imports**

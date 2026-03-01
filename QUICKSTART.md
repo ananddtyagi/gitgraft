@@ -13,24 +13,24 @@ cd gitgraft
 pip install -e .
 
 # Verify installation
-graph --help
+git-graft --help
 ```
 
 ## First Run
 
 1. **Run Onboarding**
    ```bash
-   graph onboard
+   git-graft onboard
    ```
    
    This will:
    - Welcome you to GitGraft
-   - Offer to create a shell alias (`gg` → `graph`)
+   - Offer to create a shell alias (`gg` → `git-graft`)
    - Save your preferences
 
 2. **Explore the Main Menu**
    ```bash
-   graph
+   git-graft
    # or if you created the alias:
    gg
    ```
@@ -39,7 +39,7 @@ graph --help
 
 3. **Try the Branch Selector**
    ```bash
-   graph branch
+   git-graft branch
    # or:
    gg branch
    ```
@@ -93,7 +93,7 @@ gg onboard
 
 ## Need Help?
 
-- Run `graph --help` for command-line options
+- Run `git-graft --help` for command-line options
 - Check the main [README.md](README.md) for detailed documentation
 - See [CONTRIBUTING.md](CONTRIBUTING.md) if you want to contribute
 

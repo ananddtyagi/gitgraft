@@ -10,7 +10,7 @@ from gitgraft.branch_selector import BranchSelectorApp
 
 
 def main():
-    """Main entry point for the graph command"""
+    """Main entry point for the git-graft command"""
     config = Config()
     
     parser = argparse.ArgumentParser(description="GitGraft - TUI for Git commands")
