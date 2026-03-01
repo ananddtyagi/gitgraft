@@ -20,6 +20,8 @@ cd gitgraft
 pip install -e .
 ```
 
+For a step-by-step guide, see [QUICKSTART.md](QUICKSTART.md).
+
 ### Requirements
 
 - Python 3.8+
