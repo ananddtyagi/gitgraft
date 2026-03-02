@@ -237,6 +237,39 @@ func CreateCommit(client *git.Client, message string) tea.Cmd {
 	}
 }
 
+// StageAndCommit stages files then commits in one operation
+func StageAndCommit(client *git.Client, files []string, message string) tea.Cmd {
+	return func() tea.Msg {
+		// Stage files first
+		err := client.StageFiles(files)
+		if err != nil {
+			if gitErr, ok := err.(*git.GitError); ok {
+				return ErrorMsg{Err: gitErr}
+			}
+			return ErrorMsg{Err: &git.GitError{
+				Op:      "stage",
+				Err:     err,
+				Message: err.Error(),
+			}}
+		}
+
+		// Then commit
+		err = client.Commit(message)
+		if err != nil {
+			if gitErr, ok := err.(*git.GitError); ok {
+				return ErrorMsg{Err: gitErr}
+			}
+			return ErrorMsg{Err: &git.GitError{
+				Op:      "commit",
+				Err:     err,
+				Message: err.Error(),
+			}}
+		}
+
+		return CommitSuccessMsg{Message: message}
+	}
+}
+
 func Push(client *git.Client) tea.Cmd {
 	return func() tea.Msg {
 		// Check if upstream is set

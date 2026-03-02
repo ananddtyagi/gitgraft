@@ -203,17 +203,13 @@ func (m CommitModel) Update(msg tea.Msg) (CommitModel, tea.Cmd) {
 			case "tab":
 				m.section = SectionFiles
 				m.message.Blur()
-			case "ctrl+s", "ctrl+enter":
+			case "ctrl+s":
 				if m.canCommit() {
 					m.shouldCommit = true
 				}
 			case "esc":
-				if m.message.Value() == "" {
-					m.section = SectionFiles
-					m.message.Blur()
-				} else {
-					m.shouldGoBack = true
-				}
+				m.section = SectionFiles
+				m.message.Blur()
 			default:
 				var cmd tea.Cmd
 				m.message, cmd = m.message.Update(msg)
