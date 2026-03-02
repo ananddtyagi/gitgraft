@@ -255,8 +255,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if m.commit.ShouldCommit() {
 			files, message := m.commit.GetCommitInfo()
 			if len(files) > 0 && message != "" {
-				cmds = append(cmds, StageFiles(m.gitClient, files))
-				cmds = append(cmds, CreateCommit(m.gitClient, message))
+				cmds = append(cmds, StageAndCommit(m.gitClient, files, message))
 				m.commit = m.commit.Reset()
 			}
 		}
